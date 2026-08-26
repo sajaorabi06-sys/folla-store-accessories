@@ -5,33 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Folla Store is an online shop offering a variety of handmade accessories for kids and adults">
     <meta name="google-site-verification" content="boKVMx2aoMHLQ9ffxwaqw4QXuNUAzyMBpLMk1w3wsSQ" />
-    <title>Document</title>
+    <title>Folla Store | Handmade Accessories 💗</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="folla store.css">
 </head>
 <body>
 <div class="page">
     <nav class="navbar">
-        <div class="logo">folla store</div>
-        <button class="hamburger">
+        <div class="logo">folla store 🌸</div>
+        <button class="hamburger" aria-label="Toggle Navigation">
             <span></span>
             <span></span>
             <span></span>
         </button>
         <ul class="list">
-            <li><a href="#">home</a></li>
-             <li><a href="#">about</a></li>
-              <li><a href="#">contact</a></li>
+            <li><a href="#home">home</a></li>
+            <li><a href="#shop">products</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#contact">contact</a></li>
         </ul>
     </nav>
-
-
 </div>
-<div class="welcome">
-    <img src="logo1.png" alt="" class="logo1">
-        <h1>Welcome to Folla Store 💗</h1>
-        <p>your best online shop</p>
-        <a class="btn" href="shop">shop now</a>
+
+<!-- Hero Section with Accessories Background & Disappearing Pink Cover -->
+<div class="welcome" id="home">
+    <!-- Disappearing Pink Cover -->
+    <div class="pink-cover" id="pinkCover">
+        <div class="cover-content">
+            <div class="cover-heart">💗</div>
+            <h2>Folla Store</h2>
+            <p>Handmade Accessories With Love</p>
+            <div class="sparkles">✨ ✨ ✨</div>
+        </div>
     </div>
+
+    <!-- Hero Content -->
+    <div class="welcome-content">
+        <img src="logo1.png" alt="Folla Store Logo" class="logo1">
+        <h1>Welcome to Folla Store 💗</h1>
+        <p>Your best online shop for handmade accessories & jewelry</p>
+        <a class="btn" href="#shop">Shop Now ✨</a>
+    </div>
+</div>
     
     <!--product section-->
     <section class="product" id="shop">
@@ -221,6 +239,21 @@ const list = document.querySelector('.list');
 hamburger.addEventListener('click', () => {
     list.classList.toggle('open');
 });
+
+// Pink cover animation dismissal handling
+const pinkCover = document.getElementById('pinkCover');
+if (pinkCover) {
+    // Dismiss on click if user clicks early
+    pinkCover.addEventListener('click', () => {
+        pinkCover.classList.add('disappeared');
+    });
+    // Ensure it completely disables interaction after animation ends
+    pinkCover.addEventListener('animationend', (e) => {
+        if (e.animationName === 'pinkCoverDisappear') {
+            pinkCover.classList.add('disappeared');
+        }
+    });
+}
 </script>
 </body>
 </html>
